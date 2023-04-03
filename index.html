@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Väder</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/751fee88fc.js" crossorigin="anonymous"></script>
+</head>
+<body onload="getWeather()">
+
+    <!-- VÄDER-API: https://openweathermap.org/current#current_JSON  -->
+    <!-- LANDFAKTA-API: https://restcountries.com/ -->
+    <!-- Basic footer design: https://www.youtube.com/watch?v=zdA3qZNH1vc  -->
+    <!-- Basic header design: https://www.youtube.com/watch?v=2zQ9HoD_GcU  -->
+
+    <header>
+        <h1 id="title">SYZYGY</h1>
+        <p>Platsen för alla dina väderbehov</p>
+        <a href="#anchor" id="anchorBtn">VISA MIG</a>
+    </header>
+ 
+    <nav id="anchor">
+        <ul>
+            <li>
+                <a href="#">Hem</a>
+            </li>
+            <li>
+                <a href="#">Om oss</a>
+            </li>
+            <li>
+                <a href="#">Kontakt</a>
+            </li>
+            <li>
+                <a href="#">Lorum</a>
+            </li>
+        </ul>
+    </nav> 
+
+    <div id="all-container">
+        <section id="flex">
+            <div id="main-container">
+                <input type="text" id="search" placeholder="Ange stad..." onkeypress="clickPress(event)">
+                <i class="fa-solid fa-magnifying-glass-location fa-2xl" onclick="getWeather()"></i>
+                <br>
+                <div id="radio-container">
+                    <input type="radio" name="type" id="celsius" checked> <label for="celsius">Celsius</label><br>
+                    <input type="radio" name="type" id="fahrenheit"> <label for="fahrenheit">Fahrenheit</label>
+                </div>
+                
+        
+                <div id="result-container">
+                    <span id="location" class="result"></span> <img src="" id="flag">
+                    <span id="date" class="result"></span>
+                    <span id="temp" class="result"></span>
+                    <span id="status" class="result"></span>
+                    <i class="fa-2xl fa-solid" id="icon-display"></i>
+                </div>
+            </div>
+        
+        </section>
+        
+
+        <div class="forecast-container twenty-four" id="24hour-forecast">
+            <h1>24 timmar prognos</h1>
+            <div id="hour-container">
+                
+            </div>
+            
+        </div>
+
+
+        <div class="forecast-container" id="5day-forecast">
+            <h1>5 dagar prognos</h1>
+            <div class="day-container" id="5day-forecast-day-container">
+    
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>SYZYGY</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Excepturi repellat quam neque velit veritatis?</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a> </li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a> </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy;2023 Syzygy</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.point2-icon {
+    bottom: 10px;
+}
+
+p {
+    padding:0;
+    margin:0;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    /*background-image: url("bilder/grandcanyon.png");*/
+    background-size: cover; /* Optional: set the size of the background image */
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin:0;
+}
+
+header {
+    background: url(bilder/mountain.png);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6); /* grå bakgrund */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    font-size: 30px;
+}
+
+#title {
+    font-family: 'Creepster', cursive;
+    font-size: 100px;
+    text-shadow: rgba(255, 0, 0, 0.9) 3px 3px 3px;
+}
+
+#anchorBtn {
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    padding: 3px 20px;
+    border-radius: 10px;
+    font-size: 25px; 
+    transition: all .2s ease;
+    box-shadow: #111 3px 3px 3px;
+    
+}
+
+#anchorBtn:hover {
+    background-color: rgb(77, 2, 2);
+}
+
+footer {
+    background: #111;
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    color: white;
+}
+
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 1vw;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.socials li {
+    margin: 0 10px;
+}
+
+.socials a {
+    text-decoration: none;
+    color: white;
+}
+
+.socials a i {
+    font-size: 1.1rem;
+    transition: color .4s ease;
+}
+
+.socials a:hover {
+    cursor:pointer;
+    color:aqua;
+}
+
+.footer-bottom {
+    background: black;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+}
+
+
+#all-container {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6); /* grå bakgrund */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#flex {
+    display: flex;
+}
+
+nav {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    width: 100%;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    position: sticky;
+    top:0;
+}
+
+#flag {
+    height: 45px;
+    max-height: 45px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+#test {
+    color:white;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    margin:0px;
+    padding:0px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.4s ease;
+    margin-right: 25px;
+}
+
+nav ul li a:hover {
+    color: grey;
+}
+
+nav ul li:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#status::first-letter {
+    text-transform:capitalize;
+}
+
+.desc::first-letter {
+    text-transform: capitalize;
+}
+
+.desc {
+    color:#007bff;
+    font-size: 1.15vw;
+}
+
+#main-container {
+    padding: 40px;
+    width: 100%;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    -webkit-border-bottom-right-radius: 100px;
+    -webkit-border-bottom-left-radius: 100px;
+    -moz-border-radius-bottomright: 100px;
+    -moz-border-radius-bottomleft: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    color:white;
+    /*box-shadow: 10px 10px 10px rgba(15, 15, 0, 0.7);*/
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.forecast-container {
+    padding: 40px;
+    width: 80%;
+    flex: 80%;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    border-radius: 20px;
+    color:white;
+    margin-bottom: 15px;
+    /*box-shadow: 10px 10px 10px rgba(15, 15, 0, 0.7);*/
+    height: fit-content;
+}
+
+
+
+#hour-container {
+    display: flex;
+    gap: 8px;
+}
+
+.hour {
+    width: 13%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 250px;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.hour:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.forecast-icon {
+    margin-top: auto;
+    font-size: 2.5vw;
+}
+
+
+.day-container {
+    display: flex;
+    gap: 8px;
+}
+
+.day {
+    height: 250px;
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+.weekday {
+    font-size: 3vw;
+}
+
+label {
+    transition: color 0.4s ease;
+}
+
+label:hover {
+    color:gray;
+    cursor: pointer;
+}
+
+#result-container {
+    display: grid;
+    place-items: center;
+    margin-top: 25px;
+}
+
+.fa-magnifying-glass-location:hover {
+    cursor: pointer;
+}
+
+input[type=text] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+  
+input[type=text]:focus {
+    border-color: #007bff;
+}
+
+#location {
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#date {
+    font-size: 20px;
+}
+
+.fa-sun {
+    color:orange;
+}
+
+.temp {
+    font-size: 2vw;
+    color:orange;
+    text-shadow: 3px 3px 3px black;
+}
+
+.time {
+    font-size: 1vw;
+}
+
+#temp {
+    font-size: 60px;
+    color:orange;
+    text-shadow: rgb(27, 27, 27) 3px 3px 3px;
+}
+
+#status {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.result {
+    padding-bottom: 10px;
+}
+
+
+@media screen and (max-width: 1030px) {
+    .hour {
+      width: 20%;
+    }
+    .forecast-container {
+        width: 80%;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+  }
