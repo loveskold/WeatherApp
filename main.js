@@ -41,46 +41,6 @@ function getWeather() {
 
 function displayForecast(dataForecast) {
     console.log(dataForecast);
-    /*
-    for (let i = 0; i < 9; i++)
-    {
-        if (type == "metric"){
-            document.getElementById(`point${i+1}-temp`).innerHTML = Math.round(dataForecast.list[i].main.temp) + " °C";
-        }
-        else if (type == "imperial"){
-            document.getElementById(`point${i+1}-temp`).innerHTML = Math.round(dataForecast.list[i].main.temp) + " °F";
-        }
-        document.getElementById(`point${i+1}-time`).innerHTML = dataForecast.list[i].dt_txt;
-        document.getElementById(`point${i+1}-desc`).innerHTML = dataForecast.list[i].weather[0].description;
-
-        let icon = document.getElementById(`point${i+1}-icon`);
-        icon.className = "fa-2xl fa-solid forecast-icon";
-
-        switch(dataForecast.list[i].weather[0].main) {
-            case "Clear":
-                icon.classList.add("fa-sun")
-                break;
-            case "Snow":
-                icon.classList.add("fa-snowflake")
-                break;
-            case "Mist":
-                icon.classList.add("fa-smog")
-                break;
-            case "Rain":
-                icon.classList.add("fa-cloud-rain")
-                break;
-            case "Smog":
-                icon.classList.add("fa-smog")
-                break;
-            case "Haze": 
-                icon.classList.add("fa-user")
-                break;
-            case "Clouds": 
-                icon.classList.add("fa-cloud")
-                break;
-        }
-    }*/
-
     
     let div2 = document.getElementById("hour-container");
     div2.innerHTML = '';
@@ -104,7 +64,7 @@ function displayForecast(dataForecast) {
 
         let time = document.createElement("span");
         time.innerHTML = dataForecast.list[i].dt_txt;
-        time.classList.add = "time";
+        time.className = "time";
 
         let icon = document.createElement("i");
             icon.className = ("fa-2xl fa-solid forecast-icon");
@@ -210,7 +170,6 @@ function displayForecast(dataForecast) {
 
 }
 
-
 function displayResults(data) {
     let location = document.getElementById("location");
     location.innerHTML = data.name + ", " + data.sys.country;
@@ -247,7 +206,7 @@ function displayResults(data) {
         case "Smog":
             iconDisplay.classList.add("fa-smog")
             break;
-        case "Haze": //Vad fan är dis?
+        case "Haze": 
             iconDisplay.classList.add("fa-user")
             break;
         case "Clouds": 
