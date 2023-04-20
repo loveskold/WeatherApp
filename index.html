@@ -19,27 +19,33 @@
     <!-- LANDFAKTA-API: https://restcountries.com/ -->
 
     <header>
-        <h1 id="title">SYZYGY</h1>
-        <p>Platsen för alla dina väderbehov</p>
-        <a href="#anchor" id="anchorBtn">VISA MIG</a>
+        <h1 id="title">Weatherbox</h1>
+        <!-- <p>Platsen för alla dina väderbehov</p> -->
+        <a href="#anchor" id="anchorBtn">Ta mig till vädret</a>
     </header>
  
+    
+
     <nav id="anchor">
         <ul>
             <li>
                 <a href="#">Hem</a>
             </li>
             <li>
-                <a href="#">Om oss</a>
+                <a href="subpages/about.html">Om oss</a>
             </li>
             <li>
                 <a href="#">Kontakt</a>
             </li>
             <li>
-                <a href="#">Lorum</a>
+                <a href="#">FAQ</a>
             </li>
+            
         </ul>
+
+        
     </nav> 
+    <i class="fa-solid fa-bars fa-2xl" id="nav-icon"></i>
 
     <div id="all-container">
         <section id="flex">
@@ -51,7 +57,6 @@
                     <input type="radio" name="type" id="celsius" checked> <label for="celsius">Celsius</label><br>
                     <input type="radio" name="type" id="fahrenheit"> <label for="fahrenheit">Fahrenheit</label>
                 </div>
-                
         
                 <div id="result-container">
                     <span id="location" class="result"></span> <img src="" id="flag">
@@ -61,18 +66,13 @@
                     <i class="fa-2xl fa-solid" id="icon-display"></i>
                 </div>
             </div>
-        
         </section>
-        
 
         <div class="forecast-container twenty-four">
             <h1 class="forecast-title">24 timmar prognos</h1>
-            <div id="hour-container">
-                
-            </div>
-            
+            <div id="hour-container">     
+            </div>  
         </div>
-
         
         <div class="forecast-container" id="5day-forecast">
             <h1 class="forecast-title">5 dagar prognos</h1>
@@ -84,9 +84,8 @@
 
     <footer>
         <div class="footer-content">
-            <h3>SYZYGY</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Excepturi repellat quam neque velit veritatis?</p>
+            <h3>Weatherbox</h3>
+            <p>Weatherbox är inte ansvarig för dåliga väderförhållanden.</p>
             <ul class="socials">
                 <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
@@ -96,7 +95,7 @@
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>Copyright &copy;2023 Syzygy</p>
+            <p>Copyright &copy;2023 Weatherbox</p>
         </div>
     </footer>
 

@@ -9,15 +9,6 @@ html, body {
     scroll-behavior: smooth;
 }
 
-.point2-icon {
-    bottom: 10px;
-}
-
-p {
-    padding:0;
-    margin:0;
-}
-
 body {
     display: grid;
     place-items: center;
@@ -29,7 +20,7 @@ body {
 }
 
 header {
-    background: url(bilder/mountain.png);
+    background: url(bilder/forest.png);
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6); 
     background-repeat: no-repeat;
     background-size: cover;
@@ -161,6 +152,17 @@ nav {
     top:0;
 }
 
+#nav-icon {
+    float:right;
+    position: relative;
+    color:white;
+    display: none;
+}
+
+#nav-icon:hover {
+    cursor:pointer;
+}
+
 #flag {
     height: 45px;
     max-height: 45px;
@@ -208,19 +210,14 @@ nav ul li:not(:last-child) {
 
 .desc {
     color:#007bff;
-    font-size: 1rem;
+    font-size: clamp(6px, 2vw, 20px);
 }
 
 #main-container {
     padding: 40px;
     width: 100%;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
-    -webkit-border-bottom-right-radius: 100px;
-    -webkit-border-bottom-left-radius: 100px;
-    -moz-border-radius-bottomright: 100px;
-    -moz-border-radius-bottomleft: 100px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 100px;
+    border-radius:  20px;
     color:white;
     /*box-shadow: 10px 10px 10px rgba(15, 15, 0, 0.7);*/
     margin-bottom: 15px;
@@ -228,8 +225,9 @@ nav ul li:not(:last-child) {
 }
 
 .forecast-container {
+    font-size: 5%;
     padding: 4%;
-    max-width: 80%;
+    width: 80%;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
     border-radius: 20px;
     color:white;
@@ -240,11 +238,15 @@ nav ul li:not(:last-child) {
     overflow-x: scroll;
 }
 
-
+.twenty-four {
+    overflow-x: scroll;
+}
 
 #hour-container {
     display: flex;
     gap: 2%;
+    width: fit-content;
+    
 }
 
 .hour {
@@ -257,6 +259,7 @@ nav ul li:not(:last-child) {
     min-height: 230px;
     gap:2%;
     flex-wrap: wrap;
+    flex-shrink: 1;
 }
 
 .hour:not(:last-child) {
@@ -265,7 +268,6 @@ nav ul li:not(:last-child) {
 
 .forecast-icon {
     margin-top: auto;
-    font-size: 2rem;
 }
 
 
@@ -357,7 +359,7 @@ input[type=text]:focus {
 }
 
 .time {
-    font-size: 2.5vw;
+    font-size: clamp(8px, 3vw, 40px);
     color:aquamarine;
 }
 
@@ -379,8 +381,20 @@ input[type=text]:focus {
 
 @media screen and (max-width: 500px) {
     
-    nav {
+    nav ul{
+        flex-direction: column;
+        height:fit-content;
         display: none;
     }
+
+    #nav-icon {
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    
+
 
 }

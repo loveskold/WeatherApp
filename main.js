@@ -64,10 +64,12 @@ function displayForecast(dataForecast) {
 
         let time = document.createElement("span");
         time.innerHTML = dataForecast.list[i].dt_txt;
+        time.innerHTML = time.innerHTML.slice(10); //tar bara tiden
         time.className = "time";
+        
 
         let icon = document.createElement("i");
-            icon.className = ("fa-2xl fa-solid forecast-icon");
+            icon.className = ("fa-xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -122,7 +124,6 @@ function displayForecast(dataForecast) {
 
             let d = new Date(dataForecast.list[i].dt_txt);
             let day = weekday[d.getDay()];
-            console.log(day);
 
             let weekdayDisplay = document.createElement("span");
             weekdayDisplay.innerHTML = day;
@@ -133,7 +134,7 @@ function displayForecast(dataForecast) {
             desc.className = "desc";
 
             let icon = document.createElement("i");
-            icon.className = ("fa-2xl fa-solid forecast-icon");
+            icon.className = ("fa-xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -167,7 +168,6 @@ function displayForecast(dataForecast) {
             div2.appendChild(div);
         }
     }
-
 }
 
 function displayResults(data) {
