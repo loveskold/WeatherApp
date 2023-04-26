@@ -69,7 +69,7 @@ function displayForecast(dataForecast) {
         
 
         let icon = document.createElement("i");
-            icon.className = ("fa-xl fa-solid forecast-icon");
+            icon.className = ("fa-2xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -134,7 +134,7 @@ function displayForecast(dataForecast) {
             desc.className = "desc";
 
             let icon = document.createElement("i");
-            icon.className = ("fa-xl fa-solid forecast-icon");
+            icon.className = ("fa-2xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -228,3 +228,29 @@ function GetCountry(country) {
 function displayCountry(dataCountry){
     document.getElementById("flag").src = dataCountry[0].flags.png;
 }
+
+// Mobilanpassad navbar
+$(document).ready(function()
+        {
+            $("#nav-icon").click(function ()
+            {
+                if ($("#nav-icon").hasClass("click"))
+                {
+                    $("#nav-icon").removeClass("click");
+                    $("nav ul").slideToggle();
+                    setTimeout(function ()
+                    {   
+
+                        $("#nav-icon").addClass("click");
+                    }, 500);
+                }
+            });
+        
+            $(window).resize(function()
+            {
+                if ($(window).width() > 767)
+                {
+                $("nav ul").removeAttr('style');
+                }
+            });
+        });
