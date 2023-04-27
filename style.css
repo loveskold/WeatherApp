@@ -405,10 +405,12 @@ input[type=text]:focus {
 
 /*----------------------------- FORMULÄR -----------------------------*/
 
-
-
-form {
+form fieldset{
     padding: 20px;
+}
+
+form legend {
+    font-size: 20px;
 }
 
 
@@ -423,6 +425,7 @@ form {
     float:right;
     margin-right: 10px;
     cursor: pointer;
+    margin-right: 10px;
   }
   
   @media only screen and (max-width: 768px) {
@@ -431,13 +434,18 @@ form {
       float:left;
       margin:0%;
       margin-bottom: 20px;
+      border-radius: 20px;
     }
     nav ul li {
       display: block;
       }
+    nav ul li:not(:last-child){
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
       nav ul{
       display: none;
       border:1px solid black;
+      border-radius: 20px;
       }
       nav {
       border: 0px;

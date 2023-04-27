@@ -1,26 +1,26 @@
-let query = "Umeå"; //Startvärde
-let type = "metric";
+let query = "Umeå"; // Startvärde
+let type = "metric"; // Börjar med Celsius
 const radioCelsius = document.getElementById("celsius");
 const radioFahrenheit = document.getElementById("fahrenheit");
 
 const currentDate = new Date();
 
 function clickPress(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13) { // Om man klickar Enter ska söka
         getWeather();
     }
 }
 
 const api = {
-    key: "50014560ed085145bb2939778d82a3cc",
-    base: "https://api.openweathermap.org/data/2.5/"
+    key: "50014560ed085145bb2939778d82a3cc", // API nyckel
+    base: "https://api.openweathermap.org/data/2.5/" // Början på url
 }
 
 function getWeather() {
     if (document.getElementById("search").value != ""){
-        query = document.getElementById("search").value; //Tar värdet från input-box
+        query = document.getElementById("search").value; // Tar värdet från input-box
     }
-    document.getElementById("search").value = "";
+    document.getElementById("search").value = ""; // Tömmer inputboxen
     if (radioCelsius.checked){
         type = "metric";
     }
@@ -28,20 +28,18 @@ function getWeather() {
         type = "imperial";
     }
 
-    fetch(`${api.base}weather?q=${query}&units=${type}&lang=sv&appid=${api.key}`) //Tar väderdata från OpenWeather
+    fetch(`${api.base}weather?q=${query}&units=${type}&lang=sv&appid=${api.key}`) // Tar väderdata från OpenWeather
     .then(data => {
-        return data.json(); //Konverterar väderdatan till json
+        return data.json(); // Konverterar väderdatan till json
     }).then (displayResults);
     
-    fetch(`${api.base}forecast?q=${query}&units=${type}&lang=sv&appid=${api.key}`) //Tar väderdata från OpenWeather
+    fetch(`${api.base}forecast?q=${query}&units=${type}&lang=sv&appid=${api.key}`) // Tar väderdata från OpenWeather
     .then(dataForecast => {
-        return dataForecast.json(); //Konverterar väderdatan till json
+        return dataForecast.json(); // Konverterar väderdatan till json
     }).then (displayForecast);
 }
 
-function displayForecast(dataForecast) {
-    console.log(dataForecast);
-    
+function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognosen och 5 dagar prognosen på sidan
     let div2 = document.getElementById("hour-container");
     div2.innerHTML = '';
 
@@ -64,7 +62,7 @@ function displayForecast(dataForecast) {
 
         let time = document.createElement("span");
         time.innerHTML = dataForecast.list[i].dt_txt;
-        time.innerHTML = time.innerHTML.slice(10); //tar bara tiden
+        time.innerHTML = time.innerHTML.substring(10, 16); // Tar bara tiden/timmen
         time.className = "time";
         
 
@@ -104,12 +102,12 @@ function displayForecast(dataForecast) {
     
 
     div2 = document.getElementById("5day-forecast-day-container"); 
-    div2.innerHTML = ''; //Clearar forecast container
+    div2.innerHTML = ''; // Clearar forecast container
 
     const weekday = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
 
     for (let i = 0; i < 40; i++){
-        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39){
+        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39){ // Varje 24 timmar (i = 3 timmar)
             let div = document.createElement("div");
             div.className = "day";
 
@@ -134,7 +132,7 @@ function displayForecast(dataForecast) {
             desc.className = "desc";
 
             let icon = document.createElement("i");
-            icon.className = ("fa-2xl fa-solid forecast-icon");
+            icon.className = ("fa-xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -170,7 +168,7 @@ function displayForecast(dataForecast) {
     }
 }
 
-function displayResults(data) {
+function displayResults(data) { // Funktion som endast visar aktuella vädret
     let location = document.getElementById("location");
     location.innerHTML = data.name + ", " + data.sys.country;
 
@@ -188,7 +186,7 @@ function displayResults(data) {
     status.innerHTML = "Just nu är det " + data.weather[0].description;
 
     let iconDisplay = document.getElementById("icon-display");
-    iconDisplay.className = "fa-2xl fa-solid";
+    iconDisplay.className = "fa-xl fa-solid";
     
     switch(data.weather[0].main) {
         case "Clear":
@@ -221,15 +219,15 @@ function displayResults(data) {
 function GetCountry(country) {
     fetch(`https://restcountries.com/v3.1/alpha/${country}`) 
     .then(dataCountry => {
-        return dataCountry.json(); //Konverterar landsdatan till json
+        return dataCountry.json(); // Konverterar landsdatan till json
     }).then (displayCountry);
 }
 
 function displayCountry(dataCountry){
-    document.getElementById("flag").src = dataCountry[0].flags.png;
+    document.getElementById("flag").src = dataCountry[0].flags.png; // Ändrar flaggan till aktuellt land
 }
 
-// Mobilanpassad navbar
+// Mobilanpassad navbar (jQuery)
 $(document).ready(function()
         {
             $("#nav-icon").click(function ()

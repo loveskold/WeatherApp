@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/751fee88fc.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
-    <scirpt src="../main.js"></scirpt>
+    <script src="../main.js"></script>
 </head>
 <body>
     <header id="header-sub">
@@ -22,9 +22,8 @@
     </header>
 
     <div id="all-container">
-
-        <i class="fa-solid fa-bars fa-2xl click" id="nav-icon"></i>
         <nav id="anchor">
+            <i class="fa-solid fa-bars fa-2xl click" id="nav-icon"></i>
             <ul>
                 <li>
                     <a href="../index.html">Hem</a>
@@ -43,22 +42,23 @@
         </nav> 
 
         <section class="basic-content" style="margin-top: 20px; width: 50%;">
-            <h1>Kontakt</h1>
+            <h1>Problem? Kontakta oss!</h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus ex fugiat quae eveniet molestiae expedita vero doloribus vitae voluptatum dolore!</p>
+
             <form method="get" >
                 <fieldset>
                     <legend>Kontakt</legend>
                     <p>
                         Namn <br/>
                         <input type="text" id="user" placeholder="Minst 5 tecken" required/>
-                        <span id="userError">‎ </span>
+                        <span id="userError"></span>
                     </p>
                     <p>
                         Mailadress <br/>
                         <div class="input">
                             <input type="email" name="mail" id="mail" placeholder="Ange din mail" required/>
                         </div>
-                        <span>‎ </span>
+                        <span> </span>
                     </p>
                     <p>
                         Kategori på problem<br/>
