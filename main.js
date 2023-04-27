@@ -69,7 +69,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
         let icon = document.createElement("i");
             icon.className = ("fa-2xl fa-solid forecast-icon");
 
-            switch(dataForecast.list[i].weather[0].main) {
+            switch(dataForecast.list[i].weather[0].main) { // Ändrar ikon beroende på väderförhållanden
                 case "Clear":
                     icon.classList.add("fa-sun")
                     break;
@@ -132,7 +132,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
             desc.className = "desc";
 
             let icon = document.createElement("i");
-            icon.className = ("fa-xl fa-solid forecast-icon");
+            icon.className = ("fa-2xl fa-solid forecast-icon");
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -186,9 +186,9 @@ function displayResults(data) { // Funktion som endast visar aktuella vädret
     status.innerHTML = "Just nu är det " + data.weather[0].description;
 
     let iconDisplay = document.getElementById("icon-display");
-    iconDisplay.className = "fa-xl fa-solid";
+    iconDisplay.className = "fa-4x fa-solid";
     
-    switch(data.weather[0].main) {
+    switch(data.weather[0].main) { 
         case "Clear":
             iconDisplay.classList.add("fa-sun")
             break;
@@ -225,6 +225,10 @@ function GetCountry(country) {
 
 function displayCountry(dataCountry){
     document.getElementById("flag").src = dataCountry[0].flags.png; // Ändrar flaggan till aktuellt land
+    console.log(dataCountry);
+    document.getElementById("flag").title = dataCountry[0].name.common + " Flag";
+    document.getElementById("flag").alt = dataCountry[0].name.common + " Flag";
+
 }
 
 // Mobilanpassad navbar (jQuery)

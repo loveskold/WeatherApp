@@ -19,7 +19,7 @@ body {
 }
 
 #header-main {
-    background: url(bilder/forest.png);
+    background: url(bilder/founder.png);
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6); 
     background-repeat: no-repeat;
     background-size: cover;
@@ -234,14 +234,6 @@ nav li a:hover {
     text-transform:capitalize;
 }
 
-.desc::first-letter {
-    text-transform: capitalize;
-}
-
-.desc {
-    color:#007bff;
-    font-size: clamp(6px, 2vw, 20px);
-}
 
 #main-container {
     padding: 40px;
@@ -255,7 +247,7 @@ nav li a:hover {
 
 .forecast-container {
     padding: 4%;
-    width: 80%;
+    width: 72%;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
     border-radius: 20px;
     color:white;
@@ -285,7 +277,6 @@ nav li a:hover {
     flex-direction: column;
     align-content: flex-start;
     min-height: 230px;
-    gap:2%;
     flex-wrap: wrap;
     flex-shrink: 1;
 }
@@ -300,12 +291,11 @@ nav li a:hover {
 
 .day-container {
     display: flex;
-    gap: 2%;
 }
 
 .day {
     height: 250px;
-    width: 25%;
+    width: 23%;
     padding: 2%;
     text-align: center;
     display: flex;
@@ -378,13 +368,13 @@ input[type=text]:focus {
 }
 
 .temp {
-    font-size: 3vw;
+    font-size: clamp(20px, 2.5vw, 40px);
     color:orange;
     text-shadow: 3px 3px 3px black;
 }
 
 .time {
-    font-size: clamp(8px, 3vw, 40px);
+    font-size: clamp(20px, 2.5vw, 40px);
     color:aquamarine;
 }
 
@@ -401,6 +391,15 @@ input[type=text]:focus {
 
 .result {
     padding-bottom: 10px;
+}
+
+.desc::first-letter {
+    text-transform: capitalize;
+}
+
+.desc {
+    color:#007bff;
+    font-size: clamp(15px, 2vw, 30px);
 }
 
 /*----------------------------- FORMULÄR -----------------------------*/
@@ -423,14 +422,13 @@ form legend {
 #nav-icon {
     display: none;
     float:right;
-    margin-right: 10px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-top: 30px;
   }
   
   @media only screen and (max-width: 768px) {
     nav {
-      width:100%;
+      width:84%;
       float:left;
       margin:0%;
       margin-bottom: 20px;
