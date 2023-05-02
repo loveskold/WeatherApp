@@ -169,7 +169,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
 }
 
 function displayResults(data) { // Funktion som endast visar aktuella vädret
-    document.getElementById("title").innerHTML = "Väder i " + data.name; // Ändrar titeln på sidan
+    document.getElementById("title").innerHTML = "Väder i " + data.name + " - Meteo"; // Ändrar titeln på sidan
     let location = document.getElementById("location");
     location.innerHTML = data.name + ", " + data.sys.country;
 
@@ -232,28 +232,54 @@ function displayCountry(dataCountry){
 
 }
 
-// Mobilanpassad navbar (jQuery)
-$(document).ready(function()
-        {
-            $("#nav-icon").click(function ()
-            {
-                if ($("#nav-icon").hasClass("click"))
-                {
-                    $("#nav-icon").removeClass("click");
-                    $("nav ul").slideToggle();
-                    setTimeout(function ()
-                    {   
 
-                        $("#nav-icon").addClass("click");
-                    }, 500);
-                }
-            });
-        
-            $(window).resize(function()
+
+// Mobilanpassad navbar (jQuery)
+
+var navOpen = false;
+$(document).ready(function()
+    {
+        $("#nav-icon").click(function ()
+        {
+            if (navOpen) // Om man klickar ikonen och navbar är öppen ska ikonen återgå till bars
             {
-                if ($(window).width() > 767)
-                {
-                $("nav ul").removeAttr('style');
-                }
-            });
+                $("#nav-icon").removeClass("fa-x");
+                $("#nav-icon").addClass("fa-bars fa-flip");
+                setTimeout(function ()
+                {   
+                    $("#nav-icon").removeClass("fa-flip"); // Slutar flip-animationen efter 400ms
+                }, 400);
+                navOpen = false;
+            }
+            else if (!navOpen) // Om man klickar ikonen och navbar inte är öppen ska ikonen bli till ett X
+            {
+                $("#nav-icon").removeClass("fa-bars");
+                $("#nav-icon").addClass("fa-x fa-flip");
+                setTimeout(function ()
+                {   
+                    $("#nav-icon").removeClass("fa-flip"); 
+                }, 400);
+                
+                navOpen = true;
+            }
+            if ($("#nav-icon").hasClass("click"))
+            {
+                $("#nav-icon").removeClass("click");
+                $("nav ul").slideToggle();
+                setTimeout(function ()
+                {   
+                    $("#nav-icon").addClass("click");
+                }, 500);
+            }
         });
+    
+        $(window).resize(function()
+        {
+            if ($(window).width() > 767)
+            {
+                $("nav ul").removeAttr('style');
+                $("#nav-icon").addClass("fa-bars");
+                $("#nav-icon").removeClass("fa-x");
+            }
+        });
+    });

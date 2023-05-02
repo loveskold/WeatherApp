@@ -58,11 +58,11 @@ body {
     text-decoration: none;
     background-color: red;
     color: white;
-    padding: 3px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-size: 25px; 
     transition: all .2s ease;
-    box-shadow: #111 3px 3px 3px;
+    box-shadow: #363636 3px 3px 3px;
     
 }
 
@@ -72,7 +72,7 @@ body {
 
 .basic-content {
     padding: 4%;
-    width: 80%;
+    width: 50%;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
     border-radius: 20px;
     color:white;
@@ -157,7 +157,7 @@ footer {
 
 .socials a:hover {
     cursor:pointer;
-    color:aqua;
+    color:brown;
 }
 
 .footer-bottom {
@@ -208,9 +208,7 @@ nav li a {
 }
 
 nav li a:hover {
-    
-    background-color: brown;
-    color: white;
+    color: brown;
     border:none;
 }
 
@@ -220,10 +218,15 @@ nav li a:hover {
     cursor: pointer;
     color:white;
     margin-bottom: 20px;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; /* Svart border runt ikonen */
 }
 
 #nav-icon:hover {
     cursor:pointer;
+}
+
+.active {
+    color: brown;
 }
  /*---------------------------------------------------------------------------*/
 
@@ -255,12 +258,13 @@ nav li a:hover {
     display: flex;
     flex-wrap: wrap;
     overflow-x: auto;
+    overflow-y: hidden;
 }
 
 #hour-container {
     display: flex;
     gap: 2%;
-    width: fit-content;
+    width: 100%;
 }
 
 .hour {
@@ -309,7 +313,7 @@ nav li a:hover {
 
 
 .forecast-title {
-    white-space: pre;
+    font-size: clamp(20px, 2.5vw, 40px);
 }
 
 .weekday {
@@ -380,7 +384,7 @@ input[type=text]:focus {
 
 .time {
     font-size: clamp(20px, 2.5vw, 40px);
-    color:aquamarine;
+    color:red;
 }
 
 #temp {
@@ -403,8 +407,9 @@ input[type=text]:focus {
 }
 
 .desc {
-    color:#007bff;
-    font-size: clamp(15px, 2vw, 25px);
+    color:rgb(223, 223, 223);
+    font-size: clamp(10px, 2vw, 25px);
+    margin-bottom: 10%;
 }
 
 #flag {
@@ -450,28 +455,31 @@ form legend {
   
   @media only screen and (max-width: 768px) {
     nav {
-      width:84%;
+      width:80%;
       float:left;
       margin:0%;
       margin-bottom: 20px;
       border-radius: 20px;
     }
     nav ul li {
-      display: block;
-      }
-    nav ul li:not(:last-child){
+        display: block;
+    }
+    nav ul li:not(:last-child) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
-      nav ul{
-      display: none;
-      border:1px solid black;
-      border-radius: 20px;
-      }
-      nav {
-      border: 0px;
-      }
-      #nav-icon {
-      display: block;
+    nav ul{
+        display: none;
+        border-radius: 20px;
+        box-shadow: 3px 3px 3px rgba(0,0,0,.6);
+    }
+    nav {
+        border: 0px;
+    }
+    #nav-icon {
+        display: block;
+    }
+    .basic-content {
+        width: 400px;
     }
   
   }
