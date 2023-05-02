@@ -169,6 +169,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
 }
 
 function displayResults(data) { // Funktion som endast visar aktuella vädret
+    document.getElementById("title").innerHTML = "Väder i " + data.name; // Ändrar titeln på sidan
     let location = document.getElementById("location");
     location.innerHTML = data.name + ", " + data.sys.country;
 
