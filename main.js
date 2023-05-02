@@ -1,4 +1,4 @@
-let query = "Umeå"; // Startvärde
+let query = "Garga"; // Startvärde
 let type = "metric"; // Börjar med Celsius
 const radioCelsius = document.getElementById("celsius");
 const radioFahrenheit = document.getElementById("fahrenheit");
