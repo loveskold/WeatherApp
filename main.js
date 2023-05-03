@@ -1,4 +1,4 @@
-let query = "Garga"; // Startvärde
+let query = "Umeå"; // Startvärde
 let type = "metric"; // Börjar med Celsius
 const radioCelsius = document.getElementById("celsius");
 const radioFahrenheit = document.getElementById("fahrenheit");
@@ -40,12 +40,15 @@ function getWeather() {
 }
 
 function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognosen och 5 dagar prognosen på sidan
-    let div2 = document.getElementById("hour-container");
-    div2.innerHTML = '';
+    let hourContainer = document.getElementById("hour-container");
+    hourContainer.innerHTML = '';
 
-    for (let i = 1; i < 9; i++) {
-        let div = document.createElement("div");
-        div.className = "hour";
+
+console.log(dataForecast);
+
+    for (let i = 1; i <= 8; i++) {
+        let timeObject = document.createElement("div");
+        timeObject.className = "hour";
 
         let temp = document.createElement("span");
         if (type == "metric"){
@@ -62,7 +65,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
 
         let time = document.createElement("span");
         time.innerHTML = dataForecast.list[i].dt_txt;
-        time.innerHTML = time.innerHTML.substring(10, 16); // Tar bara tiden/timmen
+        time.innerHTML = time.innerHTML.substring(10, 13); // Tar bara tiden/timmen
         time.className = "time";
         
 
@@ -92,25 +95,63 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
                     icon.classList.add("fa-cloud")
                     break;
             }
-            div.appendChild(temp);
-            div.appendChild(time);
-            div.appendChild(desc);
-            div.appendChild(icon);
-            div2 = document.getElementById("hour-container"); 
-            div2.appendChild(div);
+            // Lägger till all text till hour
+            timeObject.appendChild(temp);
+            timeObject.appendChild(time);
+            timeObject.appendChild(desc);
+            timeObject.appendChild(icon);
+
+            hourContainer = document.getElementById("hour-container"); 
+            hourContainer.appendChild(timeObject);
         }
     
-
-    div2 = document.getElementById("5day-forecast-day-container"); 
-    div2.innerHTML = ''; // Clearar forecast container
+    hourContainer = document.getElementById("5day-forecast-day-container"); 
+    hourContainer.innerHTML = ''; // Clearar forecast container
 
     const weekday = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
-
     for (let i = 0; i < 40; i++){
-        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39){ // Varje 24 timmar (i = 3 timmar)
-            let div = document.createElement("div");
-            div.className = "day";
 
+        
+        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39){ // Varje 24 timmar (i = 3 timmar)
+
+
+            let maxTempNumber = Number.MIN_SAFE_INTEGER;
+            let minTempNumber = Number.MAX_SAFE_INTEGER;
+
+            let maxTemp = document.createElement("span");
+            let minTemp = document.createElement("span");
+            maxTemp.className = "small-text";
+            minTemp.className = "small-text";
+            
+
+            for (let j = i; j < i + 8; j++) // Från början på dagen till slutet (24 timmar)
+            {
+                if (dataForecast.list[j].main.temp > maxTempNumber)
+                {
+                    maxTempNumber = dataForecast.list[j].main.temp;
+                }
+
+                if (dataForecast.list[j].main.temp < minTempNumber)
+                {
+                    minTempNumber = dataForecast.list[j].main.temp;
+                }
+            }
+
+            
+            if (type == "metric"){
+                minTemp.innerHTML = "Min: " + minTempNumber + " °C";
+                maxTemp.innerHTML = "Max: " + maxTempNumber + " °C";
+            }
+            else if (type == "imperial"){
+                minTemp.innerHTML = "Min: " + minTempNumber + " °F";
+                maxTemp.innerHTML = "Max: " + maxTempNumber + " °F";
+            }
+
+
+            let dayObject = document.createElement("div");
+            dayObject.className = "day";
+
+            
             let temp = document.createElement("span");
             if (type == "metric"){
                 temp.innerHTML = Math.round(dataForecast.list[i].main.temp) + " °C";
@@ -132,7 +173,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
             desc.className = "desc";
 
             let icon = document.createElement("i");
-            icon.className = ("fa-2xl fa-solid forecast-icon");
+            icon.className = ("fa-2xl fa-solid forecast-icon"); 
 
             switch(dataForecast.list[i].weather[0].main) {
                 case "Clear":
@@ -158,12 +199,17 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
                     break;
             }
 
-            div.appendChild(weekdayDisplay);
-            div.appendChild(temp);
-            div.appendChild(desc);
-            div.appendChild(icon);
-            let div2 = document.getElementById("5day-forecast-day-container"); 
-            div2.appendChild(div);
+            
+            dayObject.appendChild(weekdayDisplay);
+            dayObject.appendChild(temp);
+            dayObject.appendChild(maxTemp);
+            dayObject.appendChild(minTemp);
+            dayObject.appendChild(desc);
+            dayObject.appendChild(icon);
+            
+            
+            let dayContainer = document.getElementById("5day-forecast-day-container"); 
+            dayContainer.appendChild(dayObject);
         }
     }
 }
