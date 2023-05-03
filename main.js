@@ -43,12 +43,9 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
     let hourContainer = document.getElementById("hour-container");
     hourContainer.innerHTML = '';
 
-
-console.log(dataForecast);
-
     for (let i = 1; i <= 8; i++) {
-        let timeObject = document.createElement("div");
-        timeObject.className = "hour";
+        let hourObject = document.createElement("div");
+        hourObject.className = "hour";
 
         let temp = document.createElement("span");
         if (type == "metric"){
@@ -64,33 +61,28 @@ console.log(dataForecast);
         desc.className = "desc";
 
         let time = document.createElement("span");
-        time.innerHTML = dataForecast.list[i].dt_txt;
-        time.innerHTML = time.innerHTML.substring(10, 13); // Tar bara tiden/timmen
+        time.innerHTML = dataForecast.list[i].dt_txt.substring(10, 13);
         time.className = "time";
-        
 
         let icon = document.createElement("i");
-            icon.className = ("fa-2xl fa-solid forecast-icon");
+        icon.className = ("fa-2xl fa-solid forecast-icon");
 
         let iconType = GetIcon(dataForecast.list[i].weather[0].main);
         icon.classList.add(iconType);
 
         // Lägger till all text till hour
-        timeObject.appendChild(temp);
-        timeObject.appendChild(time);
-        timeObject.appendChild(desc);
-        timeObject.appendChild(icon);
-
-        hourContainer = document.getElementById("hour-container"); 
-        hourContainer.appendChild(timeObject);
+        hourObject.appendChild(temp);
+        hourObject.appendChild(time);
+        hourObject.appendChild(desc);
+        hourObject.appendChild(icon);
+        hourContainer.appendChild(hourObject);
     }
     
-    hourContainer = document.getElementById("5day-forecast-day-container"); 
-    hourContainer.innerHTML = ''; // Clearar forecast container
-
+    let dayContainer = document.getElementById("5day-forecast-day-container"); 
+    dayContainer.innerHTML = ''; // Clearar forecast container
     const weekday = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
     for (let i = 0; i < 40; i++){
-        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39) { // Varje 24 timmar (i = 3 timmar)
+        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 40) { // Varje 24 timmar (i = 3 timmar)
             let maxTempNumber = Number.MIN_SAFE_INTEGER;
             let minTempNumber = Number.MAX_SAFE_INTEGER;
 
@@ -105,7 +97,6 @@ console.log(dataForecast);
                 {
                     maxTempNumber = dataForecast.list[j].main.temp;
                 }
-
                 if (dataForecast.list[j].main.temp < minTempNumber)
                 {
                     minTempNumber = dataForecast.list[j].main.temp;
@@ -120,7 +111,6 @@ console.log(dataForecast);
                 minTemp.innerHTML = "L: " + minTempNumber + " °F";
                 maxTemp.innerHTML = "H: " + maxTempNumber + " °F";
             }
-
 
             let dayObject = document.createElement("div");
             dayObject.className = "day";
@@ -151,7 +141,6 @@ console.log(dataForecast);
 
             let iconType = GetIcon(dataForecast.list[i].weather[0].main);
             icon.classList.add(iconType);
-
             
             dayObject.appendChild(weekdayDisplay);
             dayObject.appendChild(temp);
@@ -161,7 +150,7 @@ console.log(dataForecast);
             dayObject.appendChild(icon);
             
             
-            let dayContainer = document.getElementById("5day-forecast-day-container"); 
+            dayContainer = document.getElementById("5day-forecast-day-container"); 
             dayContainer.appendChild(dayObject);
         }
     }
@@ -226,9 +215,7 @@ function displayCountry(dataCountry){
     console.log(dataCountry);
     document.getElementById("flag").title = dataCountry[0].name.common + " Flag";
     document.getElementById("flag").alt = dataCountry[0].name.common + " Flag";
-
 }
-
 
 
 // Mobilanpassad navbar (jQuery)
