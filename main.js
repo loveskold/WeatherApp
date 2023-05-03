@@ -72,49 +72,25 @@ console.log(dataForecast);
         let icon = document.createElement("i");
             icon.className = ("fa-2xl fa-solid forecast-icon");
 
-            switch(dataForecast.list[i].weather[0].main) { // Ändrar ikon beroende på väderförhållanden
-                case "Clear":
-                    icon.classList.add("fa-sun")
-                    break;
-                case "Snow":
-                    icon.classList.add("fa-snowflake")
-                    break;
-                case "Mist":
-                    icon.classList.add("fa-smog")
-                    break;
-                case "Rain":
-                    icon.classList.add("fa-cloud-rain")
-                    break;
-                case "Smog":
-                    icon.classList.add("fa-smog")
-                    break;
-                case "Haze": 
-                    icon.classList.add("fa-user")
-                    break;
-                case "Clouds": 
-                    icon.classList.add("fa-cloud")
-                    break;
-            }
-            // Lägger till all text till hour
-            timeObject.appendChild(temp);
-            timeObject.appendChild(time);
-            timeObject.appendChild(desc);
-            timeObject.appendChild(icon);
+        let iconType = GetIcon(dataForecast.list[i].weather[0].main);
+        icon.classList.add(iconType);
 
-            hourContainer = document.getElementById("hour-container"); 
-            hourContainer.appendChild(timeObject);
-        }
+        // Lägger till all text till hour
+        timeObject.appendChild(temp);
+        timeObject.appendChild(time);
+        timeObject.appendChild(desc);
+        timeObject.appendChild(icon);
+
+        hourContainer = document.getElementById("hour-container"); 
+        hourContainer.appendChild(timeObject);
+    }
     
     hourContainer = document.getElementById("5day-forecast-day-container"); 
     hourContainer.innerHTML = ''; // Clearar forecast container
 
     const weekday = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
     for (let i = 0; i < 40; i++){
-
-        
-        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39){ // Varje 24 timmar (i = 3 timmar)
-
-
+        if (i == 8 || i == 16 || i == 24 || i == 32 || i == 39) { // Varje 24 timmar (i = 3 timmar)
             let maxTempNumber = Number.MIN_SAFE_INTEGER;
             let minTempNumber = Number.MAX_SAFE_INTEGER;
 
@@ -122,7 +98,6 @@ console.log(dataForecast);
             let minTemp = document.createElement("span");
             maxTemp.className = "small-text";
             minTemp.className = "small-text";
-            
 
             for (let j = i; j < i + 8; j++) // Från början på dagen till slutet (24 timmar)
             {
@@ -136,15 +111,14 @@ console.log(dataForecast);
                     minTempNumber = dataForecast.list[j].main.temp;
                 }
             }
-
             
             if (type == "metric"){
-                minTemp.innerHTML = "Min: " + minTempNumber + " °C";
-                maxTemp.innerHTML = "Max: " + maxTempNumber + " °C";
+                minTemp.innerHTML = "L: " + minTempNumber + " °C";
+                maxTemp.innerHTML = "H: " + maxTempNumber + " °C";
             }
             else if (type == "imperial"){
-                minTemp.innerHTML = "Min: " + minTempNumber + " °F";
-                maxTemp.innerHTML = "Max: " + maxTempNumber + " °F";
+                minTemp.innerHTML = "L: " + minTempNumber + " °F";
+                maxTemp.innerHTML = "H: " + maxTempNumber + " °F";
             }
 
 
@@ -175,29 +149,8 @@ console.log(dataForecast);
             let icon = document.createElement("i");
             icon.className = ("fa-2xl fa-solid forecast-icon"); 
 
-            switch(dataForecast.list[i].weather[0].main) {
-                case "Clear":
-                    icon.classList.add("fa-sun")
-                    break;
-                case "Snow":
-                    icon.classList.add("fa-snowflake")
-                    break;
-                case "Mist":
-                    icon.classList.add("fa-smog")
-                    break;
-                case "Rain":
-                    icon.classList.add("fa-cloud-rain")
-                    break;
-                case "Smog":
-                    icon.classList.add("fa-smog")
-                    break;
-                case "Haze": 
-                    icon.classList.add("fa-user")
-                    break;
-                case "Clouds": 
-                    icon.classList.add("fa-cloud")
-                    break;
-            }
+            let iconType = GetIcon(dataForecast.list[i].weather[0].main);
+            icon.classList.add(iconType);
 
             
             dayObject.appendChild(weekdayDisplay);
@@ -235,33 +188,31 @@ function displayResults(data) { // Funktion som endast visar aktuella vädret
     let iconDisplay = document.getElementById("icon-display");
     iconDisplay.className = "fa-4x fa-solid";
     
-    switch(data.weather[0].main) { 
-        case "Clear":
-            iconDisplay.classList.add("fa-sun")
-            break;
-        case "Snow":
-            iconDisplay.classList.add("fa-snowflake")
-            break;
-        case "Mist":
-            iconDisplay.classList.add("fa-smog")
-            break;
-        case "Rain":
-            iconDisplay.classList.add("fa-cloud-rain")
-            break;
-        case "Smog":
-            iconDisplay.classList.add("fa-smog")
-            break;
-        case "Haze": 
-            iconDisplay.classList.add("fa-user")
-            break;
-        case "Clouds": 
-            iconDisplay.classList.add("fa-cloud")
-            break;
-    }
+    let iconType = GetIcon(data.weather[0].main);
+    iconDisplay.classList.add(iconType);
+
     let date = document.getElementById("date");
     date.innerHTML = `${currentDate.getDate()} / ${currentDate.getMonth() + 1} / ${currentDate.getFullYear()}`;
 }
 
+function GetIcon(weatherCondition) { // Funktion som ger väderikonerna rätt utseende
+    switch(weatherCondition) { 
+        case "Clear":
+            return "fa-sun";
+        case "Snow":
+            return "fa-snowflake";
+        case "Mist":
+            return "fa-smog";
+        case "Rain":
+            return "fa-cloud-rain";
+        case "Smog":
+            return "fa-smog";
+        case "Haze": 
+            return "fa-user";
+        case "Clouds": 
+            return "fa-cloud";
+    }
+}
 
 function GetCountry(country) {
     fetch(`https://restcountries.com/v3.1/alpha/${country}`) 

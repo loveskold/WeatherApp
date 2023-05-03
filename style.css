@@ -78,17 +78,18 @@ body {
 
 #anchorBtn {
     text-decoration: none;
-    background-color: white;
-    color: black;
+    background-color:rgba(0,0,0,0);
+    color: white;
     padding: 10px 50px;
     border-radius: 35px;
     font-size: 25px; 
     transition: all .2s ease; 
+    border: 1px solid white;
 }
 
 #anchorBtn:hover {
-    background-color: rgb(31, 62, 25);
-    color:white;
+    background-color: rgb(255, 255, 255);
+    color:black;
 }
 
 .basic-content {
