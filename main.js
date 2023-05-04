@@ -217,6 +217,11 @@ function displayCountry(dataCountry){
     document.getElementById("flag").alt = dataCountry[0].name.common + " Flag";
 }
 
+function chars()
+{
+    var charLength = document.getElementById("msg").value;
+    document.getElementById("msgChars").innerHTML = 150 - charLength.length + " tecken kvar";
+}
 
 // Mobilanpassad navbar (jQuery)
 

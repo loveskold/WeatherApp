@@ -117,10 +117,6 @@ body {
     align-items: center;
 }
 
-#flex {
-    display: flex;
-}
-
  /*---------------------------------------------------------------------------------*/
 
 
@@ -266,6 +262,25 @@ nav li a:hover {
     color:white;
     margin-bottom: 15px;
     margin-top: 30px;
+    width: 350px;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#search:focus {
+    border-color: #007bff;
 }
 
 .forecast-container {
@@ -366,24 +381,6 @@ label:hover {
     cursor: pointer;
 }
 
-input[type=text] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-    box-shadow: none;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    margin-right: 10px;
-}
-  
-input[type=text]:focus {
-    border-color: #007bff;
-}
-
 #location {
     font-size: 30px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -480,7 +477,52 @@ input[type="submit"] {
     padding: 10px 20px;
     cursor:pointer;
     font-size: 20px;
+    border-radius: 20px;
+    transition: ease 0.2s;
 }
+
+input[type="submit"]:hover {
+    background-color: #007bff;
+    color:white;
+}
+
+select {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+input[type=text], input[type=email] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+  
+input[type=text]:focus {
+    border-color: #007bff;
+}
+
 
 /*-------------------------------------------------------------------*/
 
@@ -522,6 +564,15 @@ input[type="submit"] {
     }
     .basic-content {
         width: 400px;
+    }
+
+    .forecast-container {
+        width: 350px;
+    }
+
+    .hour, .day, .main-container {
+        width: 350px;
+        
     }
   }
   /*---------------------------------------------------------------------------*/
