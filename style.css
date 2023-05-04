@@ -72,7 +72,7 @@ body {
     font-size: 30px;
 }
 
-#title {
+#header-title {
     font-size: 100px;
 }
 
@@ -212,6 +212,7 @@ nav ul {
     justify-content: center;
     display: flex;
     align-items: center;
+    box-shadow: 3px 3px 3px rgba(0,0,0,.6);
 }
 
 
@@ -298,7 +299,7 @@ nav li a:hover {
     overflow-y: hidden;
 }
 
-#hour-container {
+.object-container {
     display: grid;
     grid-auto-flow: column;
     scroll-behavior: auto;
@@ -306,6 +307,11 @@ nav li a:hover {
     overflow-y: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
+    cursor: grab;
+}
+
+.active {
+    cursor: grabbing;
 }
 
 .hour {
@@ -314,22 +320,7 @@ nav li a:hover {
     flex-wrap: wrap;
     flex-shrink: 0;
     text-align: center;
-    scroll-snap-align: start;
-}
-
-.hour:not(:last-child) {
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-
-.day-container {
-    display: grid;
-    grid-auto-flow: column;
-    scroll-behavior: auto;
-    gap: 1.2rem;
-    overflow-y: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
+    scroll-snap-align: start; /* Gör så att scrollen snappar till första elementet */
 }
 
 .day {
@@ -340,18 +331,19 @@ nav li a:hover {
     display: flex;
     flex-direction: column;
     gap: 2%;
-    scroll-snap-align: start;
+    scroll-snap-align: start; 
 }
 
-.day:not(:last-child) {
+.hour:not(:last-child), .day:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+
  /*---------------------------------------------------------------------------*/
 
 
 
  /*---------------------------------- Typografi -----------------------------------------*/
-
 
 .forecast-title {
     font-size: 40px;
@@ -363,11 +355,11 @@ nav li a:hover {
 }
 
 label {
-    transition: color 0.4s ease;
+    transition: color 0.2s ease;
 }
 
 label:hover {
-    color:gray;
+    color:brown;
     cursor: pointer;
 }
 

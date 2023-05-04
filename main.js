@@ -1,15 +1,42 @@
 let query = "Umeå"; // Startvärde
 let type = "metric"; // Börjar med Celsius
+
 const radioCelsius = document.getElementById("celsius");
 const radioFahrenheit = document.getElementById("fahrenheit");
 
+const hourContainer = document.getElementById("hour-container");
+const dayContainer = document.getElementById("day-container");
+
 const currentDate = new Date();
+
+let isDown = false;
+
+hourContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hourContainer.classList.add('active');
+    console.log(e.pageX);
+});
+hourContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    hourContainer.classList.remove('active');
+});
+hourContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    hourContainer.classList.remove('active');
+});
+hourContainer.addEventListener('mousemove', () => {
+    if (isDown == false) {
+        return;
+    }
+    console.log(isDown);
+});
 
 function clickPress(event) {
     if (event.keyCode == 13) { // Om man klickar Enter ska söka
         getWeather();
     }
 }
+
 
 const api = {
     key: "50014560ed085145bb2939778d82a3cc", // API nyckel
@@ -40,7 +67,6 @@ function getWeather() {
 }
 
 function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognosen och 5 dagar prognosen på sidan
-    let hourContainer = document.getElementById("hour-container");
     hourContainer.innerHTML = '';
 
     for (let i = 1; i <= 8; i++) {
@@ -78,7 +104,7 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
         hourContainer.appendChild(hourObject);
     }
     
-    let dayContainer = document.getElementById("5day-forecast-day-container"); 
+    let dayContainer = document.getElementById("day-container"); 
     dayContainer.innerHTML = ''; // Clearar forecast container
     const weekday = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
     for (let i = 0; i < 40; i++){
@@ -104,8 +130,8 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
             }
             
             if (type == "metric"){
-                minTemp.innerHTML = "L: " + minTempNumber + " °C";
-                maxTemp.innerHTML = "H: " + maxTempNumber + " °C";
+                minTemp.innerHTML = "L: " + Math.round(minTempNumber) + " °C";
+                maxTemp.innerHTML = "H: " + Math.round(maxTempNumber) + " °C";
             }
             else if (type == "imperial"){
                 minTemp.innerHTML = "L: " + minTempNumber + " °F";
@@ -149,8 +175,6 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
             dayObject.appendChild(desc);
             dayObject.appendChild(icon);
             
-            
-            dayContainer = document.getElementById("5day-forecast-day-container"); 
             dayContainer.appendChild(dayObject);
         }
     }
@@ -222,6 +246,9 @@ function chars()
     var charLength = document.getElementById("msg").value;
     document.getElementById("msgChars").innerHTML = 150 - charLength.length + " tecken kvar";
 }
+
+
+
 
 // Mobilanpassad navbar (jQuery)
 
