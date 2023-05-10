@@ -9,27 +9,7 @@ const dayContainer = document.getElementById("day-container");
 
 const currentDate = new Date();
 
-let isDown = false;
 
-hourContainer.addEventListener('mousedown', (e) => {
-    isDown = true;
-    hourContainer.classList.add('active');
-    console.log(e.pageX);
-});
-hourContainer.addEventListener('mouseleave', () => {
-    isDown = false;
-    hourContainer.classList.remove('active');
-});
-hourContainer.addEventListener('mouseup', () => {
-    isDown = false;
-    hourContainer.classList.remove('active');
-});
-hourContainer.addEventListener('mousemove', () => {
-    if (isDown == false) {
-        return;
-    }
-    console.log(isDown);
-});
 
 function clickPress(event) {
     if (event.keyCode == 13) { // Om man klickar Enter ska söka

@@ -307,13 +307,7 @@ nav li a:hover {
     overflow-y: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
-    cursor: grab;
 }
-
-.active {
-    cursor: grabbing;
-}
-
 .hour {
     width: 300px;
     min-height: 230px;
