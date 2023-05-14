@@ -39,30 +39,27 @@
                 <li>
                     <a href="subpages/blogg.html">Blogg</a>
                 </li>
-                
             </ul>
         </nav> 
-
         
-            <div id="main-container">
-                <input type="text" id="search" placeholder="Ange stad..." onkeypress="clickPress(event)">
-                <i id="search-icon" class="fa-solid fa-magnifying-glass-location fa-2xl" onclick="getWeather()"></i>
-                <br>
-                <div id="radio-container">
-                    <input type="radio" name="type" id="celsius" checked> <label for="celsius">Celsius</label><br>
-                    <input type="radio" name="type" id="fahrenheit"> <label for="fahrenheit">Fahrenheit</label>
-                </div>
-        
-                <div id="result-container">
-                    <span id="location" class="result"></span> <img src="bilder/forest.png" id="flag" alt="flag">
-                    <h1>Idag</h1>
-                    <span id="date" class="result"></span>
-                    <span id="temp" class="result"></span>
-                    <span id="status" class="result"></span>
-                    <i class="fa-2xl fa-solid" id="icon-display"></i>
-                </div>
+        <div id="main-container">
+            <input type="text" id="search" placeholder="Ange stad..." onkeypress="clickPress(event)">
+            <i id="search-icon" class="fa-solid fa-magnifying-glass-location fa-2xl" onclick="getWeather()"></i>
+            <br>
+            <div id="radio-container">
+                <input type="radio" name="type" id="celsius" checked> <label for="celsius">Celsius</label><br>
+                <input type="radio" name="type" id="fahrenheit"> <label for="fahrenheit">Fahrenheit</label>
             </div>
-        
+    
+            <div id="result-container">
+                <span id="location" class="result"></span> <img src="bilder/forest.png" id="flag" alt="flag">
+                <h1>Idag</h1>
+                <span id="date" class="result"></span>
+                <span id="temp" class="result"></span>
+                <span id="status" class="result"></span>
+                <i class="fa-2xl fa-solid" id="icon-display"></i>
+            </div>
+        </div>
 
         <div class="forecast-container">
             <h1 class="forecast-title">24 timmar prognos</h1>
@@ -93,7 +90,6 @@
             <p>Copyright &copy;2023 Meteo</p>
         </div>
     </footer>
-
     <script src="main.js"></script>
 </body>
 </html>

@@ -37,12 +37,19 @@ function getWeather() {
     fetch(`${api.base}weather?q=${query}&units=${type}&lang=sv&appid=${api.key}`) // Tar väderdata från OpenWeather
     .then(data => {
         return data.json(); // Konverterar väderdatan till json
-    }).then (displayResults);
+    }).then (displayResults)
+    .catch(function(error) {
+        console.log('An error occurred:', error);
+    });
+    
     
     fetch(`${api.base}forecast?q=${query}&units=${type}&lang=sv&appid=${api.key}`) 
     .then(dataForecast => {
         return dataForecast.json(); 
-    }).then (displayForecast);
+    }).then (displayForecast)
+    .catch(function(error) {
+        console.log('An error occurred:', error);
+    });
 }
 
 function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognosen och 5 dagar prognosen på sidan
@@ -224,8 +231,6 @@ function chars()
     var charLength = document.getElementById("msg").value;
     document.getElementById("msgChars").innerHTML = 150 - charLength.length + " tecken kvar";
 }
-
-
 
 // Mobilanpassad navbar (jQuery)
 
