@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/751fee88fc.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
 </head>
@@ -48,7 +46,7 @@
         
             <div id="main-container">
                 <input type="text" id="search" placeholder="Ange stad..." onkeypress="clickPress(event)">
-                <i class="fa-solid fa-magnifying-glass-location fa-2xl" onclick="getWeather()"></i>
+                <i id="search-icon" class="fa-solid fa-magnifying-glass-location fa-2xl" onclick="getWeather()"></i>
                 <br>
                 <div id="radio-container">
                     <input type="radio" name="type" id="celsius" checked> <label for="celsius">Celsius</label><br>
@@ -56,7 +54,7 @@
                 </div>
         
                 <div id="result-container">
-                    <span id="location" class="result"></span> <img src="bilder/sheldon.jpg" id="flag" alt="flag">
+                    <span id="location" class="result"></span> <img src="bilder/forest.png" id="flag" alt="flag">
                     <h1>Idag</h1>
                     <span id="date" class="result"></span>
                     <span id="temp" class="result"></span>

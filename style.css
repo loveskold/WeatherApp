@@ -1,5 +1,5 @@
 
- /*-------------------------------- Generellt innehåll och header -------------------------------------------*/
+ /*-------------------------------- Generellt innehåll -------------------------------------------*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,25 +13,23 @@ html, body {
 ::-webkit-scrollbar {
     width: 20px;
     background: rgb(65, 65, 65);
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: rgb(65, 65, 65);
     border-radius: 20px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: gray;
-    
-    transition: all .2s ease;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: rgb(129, 72, 72);
-  }
+}
 
 body {
     display: grid;
@@ -103,6 +101,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     overflow-x: auto;
+    margin-top: 20px;
 }
 
 #all-container {
@@ -284,6 +283,11 @@ nav li a:hover {
     border-color: #007bff;
 }
 
+#search-icon {
+    float:right;
+    margin-top: 25px;
+}
+
 .forecast-container {
     padding-top: 4%;
     padding: 1%;
@@ -308,13 +312,14 @@ nav li a:hover {
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
 }
+
 .hour {
     width: 300px;
     min-height: 230px;
     flex-wrap: wrap;
     flex-shrink: 0;
     text-align: center;
-    scroll-snap-align: start; /* Gör så att scrollen snappar till första elementet */
+    scroll-snap-align: start; /*  Gör så att scrollen snappar till första elementet  */
 }
 
 .day {
@@ -333,11 +338,15 @@ nav li a:hover {
 }
 
 
- /*---------------------------------------------------------------------------*/
+ /*---------------------------------------------------------------------------------*/
 
 
 
  /*---------------------------------- Typografi -----------------------------------------*/
+
+h2 {
+    font-size: 35px;
+}
 
 .forecast-title {
     font-size: 40px;

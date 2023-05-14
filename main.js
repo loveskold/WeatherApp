@@ -10,7 +10,6 @@ const dayContainer = document.getElementById("day-container");
 const currentDate = new Date();
 
 
-
 function clickPress(event) {
     if (event.keyCode == 13) { // Om man klickar Enter ska söka
         getWeather();
@@ -40,9 +39,9 @@ function getWeather() {
         return data.json(); // Konverterar väderdatan till json
     }).then (displayResults);
     
-    fetch(`${api.base}forecast?q=${query}&units=${type}&lang=sv&appid=${api.key}`) // Tar väderdata från OpenWeather
+    fetch(`${api.base}forecast?q=${query}&units=${type}&lang=sv&appid=${api.key}`) 
     .then(dataForecast => {
-        return dataForecast.json(); // Konverterar väderdatan till json
+        return dataForecast.json(); 
     }).then (displayForecast);
 }
 
@@ -120,7 +119,6 @@ function displayForecast(dataForecast) { // Funktion som visar 24 timmar prognos
 
             let dayObject = document.createElement("div");
             dayObject.className = "day";
-
             
             let temp = document.createElement("span");
             if (type == "metric"){
@@ -226,7 +224,6 @@ function chars()
     var charLength = document.getElementById("msg").value;
     document.getElementById("msgChars").innerHTML = 150 - charLength.length + " tecken kvar";
 }
-
 
 
 

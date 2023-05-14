@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/751fee88fc.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
     <script src="../main.js"></script>
@@ -42,10 +40,12 @@
             </ul>
         </nav> 
 
-        <section class="basic-content" style="margin-top: 20px;">
-            <h2>Problem? Kontakta oss!</h2>
+        <section class="basic-content">
+            <h2>Problem? Kontakta oss!</h2> 
 
-            <form method="get" >
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis soluta tempore laboriosam autem minima assumenda.</p>
+
+            <form action="thanks.html" method="post">
                 <fieldset>
                     <legend>Kontakt</legend>
                     <p>
@@ -61,20 +61,20 @@
                         <span> </span>
                     </p>
                     <p>
-                        Kategori<br>
+                        Kategori <br>
                         <select>
                             <option value="Väder">Väder</option>
                             <option value="Prognos">Prognos</option>
                             <option value="Annat">Annat</option>
-                          </select>
+                        </select>
                     </p>
                     <p>
-                        Beskrivning av problem<br/>
+                        Beskrivning av problem <br>
                         <textarea id="msg" onkeyup="chars()" placeholder="Max 150 tecken" maxlength="150" rows="6"></textarea>
                         <span id="msgChars">150 tecken kvar</span>
                     </p>
                     <p>
-                        <input type="submit" value="Skicka">
+                        <input type="submit" value="Skicka" href="thanks.html">
                     </p>
                 </fieldset>
             </form>
